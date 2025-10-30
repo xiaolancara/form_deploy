@@ -32,7 +32,13 @@ document.getElementById("fillBtn").addEventListener("click", async () => {
     // 地址部分
     form.getTextField("form1[0].P5[0].Part2_Line3_StreetNumberName[0]").setText(street);
     form.getTextField("form1[0].P5[0].Part2_Line3_CityTown[0]").setText(city);
-    form.getTextField("form1[0].P5[0].Part2_Line3_State[0]").setText(state);
+      // ✅ “State” is a dropdown list
+    try {
+      form.getDropdown("form1[0].P5[0].Part2_Line3_State[0]").select(state);
+    } catch {
+      // fallback: if it's not a dropdown, try writing text
+      form.getTextField("form1[0].P5[0].Part2_Line3_State[0]").setText(state);
+    }
     form.getTextField("form1[0].P5[0].Part2_Line3_ZipCode[0]").setText(zip);
     form.getTextField("form1[0].P5[0].Part2_Line3_Country[0]").setText(country);
 
