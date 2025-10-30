@@ -3,7 +3,7 @@ document.getElementById("fillBtn").addEventListener("click", async () => {
   status.textContent = "Extracting field names... (check console)";
 
   try {
-    const pdfUrl = "./I-131_unlocked.pdf"; // make sure file name matches
+    const pdfUrl = "./i-131.pdf"; // make sure file name matches
     const bytes = await fetch(pdfUrl).then(r => r.arrayBuffer());
     const pdfDoc = await PDFLib.PDFDocument.load(bytes);
     const form = pdfDoc.getForm();
