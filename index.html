@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>I-131 自动填写助手</title>
   <style>
     body {
       font-family: "Segoe UI", "PingFang SC", sans-serif;
-      background-color: #f4f6f8;
+      background-color: #f5f7fa;
       display: flex;
       justify-content: center;
       align-items: flex-start;
@@ -44,12 +44,24 @@
       border-radius: 8px;
       border: 1px solid #ccc;
       font-size: 15px;
-      transition: border 0.2s;
+      transition: all 0.2s;
     }
 
     input:focus {
       border-color: #1f3c88;
       outline: none;
+    }
+
+    input.error {
+      border-color: #e74c3c;
+      background-color: #fff4f4;
+    }
+
+    .error-text {
+      color: #e74c3c;
+      font-size: 13px;
+      margin-top: 4px;
+      display: none;
     }
 
     button {
@@ -78,12 +90,8 @@
     }
 
     @media (max-width: 500px) {
-      body {
-        padding: 20px;
-      }
-      h2 {
-        font-size: 20px;
-      }
+      body { padding: 20px; }
+      h2 { font-size: 20px; }
     }
   </style>
 </head>
@@ -91,33 +99,53 @@
   <div class="container">
     <h2>🛂 I-131 自动填写助手</h2>
 
-    <label>1️⃣ 您的姓（Family Name）</label>
+    <label>姓（Family Name）</label>
     <input id="family" placeholder="例如：Zhang">
+    <p class="error-text" id="err-family">请输入姓氏</p>
 
-    <label>2️⃣ 您的名（Given Name）</label>
+    <label>名（Given Name）</label>
     <input id="given" placeholder="例如：Wei">
+    <p class="error-text" id="err-given">请输入名字</p>
 
-    <label>3️⃣ 出生日期 (MM-DD-YYYY)</label>
+    <label>出生日期 (MM-DD-YYYY)</label>
     <input id="dob" placeholder="例如：01-23-1995">
+    <p class="error-text" id="err-dob">请输入正确日期格式 (月月-日日-年年年年)</p>
 
-    <label>4️⃣ 出生国家</label>
+    <label>出生国家</label>
     <input id="birthCountry" placeholder="例如：China">
+    <p class="error-text" id="err-birthCountry">请输入出生国家</p>
 
-    <label>5️⃣ 国籍/公民身份</label>
+    <label>国籍/公民身份</label>
     <input id="citizenship" placeholder="例如：China">
+    <p class="error-text" id="err-citizenship">请输入国籍</p>
 
-    <label>6️⃣ 居住地址</label>
+    <label>街道地址</label>
     <input id="street" placeholder="例如：123 Main St">
+    <p class="error-text" id="err-street">请输入街道地址</p>
+
+    <label>城市</label>
     <input id="city" placeholder="例如：San Jose">
+    <p class="error-text" id="err-city">请输入城市名称</p>
+
+    <label>州</label>
     <input id="state" placeholder="例如：CA">
+    <p class="error-text" id="err-state">请输入州缩写 (如 CA)</p>
+
+    <label>邮编</label>
     <input id="zip" placeholder="例如：95112">
+    <p class="error-text" id="err-zip">请输入邮编</p>
+
+    <label>国家</label>
     <input id="country" placeholder="例如：USA">
+    <p class="error-text" id="err-country">请输入国家</p>
 
-    <label>7️⃣ 电话号码（仅数字）</label>
+    <label>电话号码（仅数字）</label>
     <input id="phone" placeholder="例如：4085551234">
+    <p class="error-text" id="err-phone">请输入正确的10位数字</p>
 
-    <label>8️⃣ 邮箱地址</label>
+    <label>邮箱地址</label>
     <input id="email" placeholder="例如：zhangwei@email.com">
+    <p class="error-text" id="err-email">请输入正确的邮箱格式</p>
 
     <button id="fillBtn">生成填写后的 PDF</button>
     <p id="status"></p>
