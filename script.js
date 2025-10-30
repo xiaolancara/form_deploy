@@ -8,7 +8,7 @@ document.getElementById("fillBtn").addEventListener("click", async () => {
     const dob = document.getElementById("dob").value;
     const country = document.getElementById("country").value;
 
-    const formUrl = "./I-131_unlocked.pdf"; // use decrypted file
+    const formUrl = "./I-131.pdf"; // use decrypted file
     const existingPdfBytes = await fetch(formUrl).then(r => r.arrayBuffer());
 
     const pdfDoc = await PDFLib.PDFDocument.load(existingPdfBytes);
