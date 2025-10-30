@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>I-131 Demo Fill</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; max-width: 480px; margin:auto; }
+    input { display:block; margin:10px 0; width:100%; padding:8px; }
+    button { padding:10px 15px; background:#007bff; color:white; border:none; border-radius:5px; cursor:pointer; }
+    button:hover { background:#0056b3; }
+  </style>
+</head>
+<body>
+  <h2>I-131 PDF Fill Demo</h2>
+  <p>Fill a few sample fields and generate your filled form.</p>
+
+  <input id="family" placeholder="Family Name (Last)" />
+  <input id="given" placeholder="Given Name (First)" />
+  <input id="dob" placeholder="Date of Birth (YYYY-MM-DD)" />
+  <input id="country" placeholder="Country of Birth" />
+
+  <button id="fillBtn">Generate PDF</button>
+
+  <p id="status"></p>
+  <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+  <script src="./script.js"></script>
+</body>
+</html>
