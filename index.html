@@ -2,41 +2,126 @@
 <html lang="zh">
 <head>
   <meta charset="UTF-8">
-  <title>I-131 自动填写测试</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I-131 自动填写助手</title>
+  <style>
+    body {
+      font-family: "Segoe UI", "PingFang SC", sans-serif;
+      background-color: #f4f6f8;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 40px 16px;
+    }
+
+    .container {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      padding: 24px;
+      max-width: 480px;
+      width: 100%;
+      text-align: left;
+    }
+
+    h2 {
+      color: #1f3c88;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-top: 14px;
+      margin-bottom: 6px;
+      color: #333;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+      transition: border 0.2s;
+    }
+
+    input:focus {
+      border-color: #1f3c88;
+      outline: none;
+    }
+
+    button {
+      margin-top: 20px;
+      width: 100%;
+      background: #1f3c88;
+      color: white;
+      font-weight: 600;
+      font-size: 16px;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    button:hover {
+      background: #2d4fa3;
+    }
+
+    #status {
+      text-align: center;
+      margin-top: 18px;
+      color: #555;
+      font-size: 15px;
+    }
+
+    @media (max-width: 500px) {
+      body {
+        padding: 20px;
+      }
+      h2 {
+        font-size: 20px;
+      }
+    }
+  </style>
 </head>
-<body style="font-family:sans-serif;margin:20px">
-  <h2>美国移民表格 I-131 填写助手</h2>
+<body>
+  <div class="container">
+    <h2>🛂 I-131 自动填写助手</h2>
 
-  <label>1️⃣ 您的姓（Family Name）:</label><br>
-  <input id="family"><br><br>
+    <label>1️⃣ 您的姓（Family Name）</label>
+    <input id="family" placeholder="例如：Zhang">
 
-  <label>2️⃣ 您的名（Given Name）:</label><br>
-  <input id="given"><br><br>
+    <label>2️⃣ 您的名（Given Name）</label>
+    <input id="given" placeholder="例如：Wei">
 
-  <label>3️⃣ 出生日期 (MM/DD/YYYY):</label><br>
-  <input id="dob"><br><br>
+    <label>3️⃣ 出生日期 (MM/DD/YYYY)</label>
+    <input id="dob" placeholder="例如：01/23/1995">
 
-  <label>4️⃣ 出生国家:</label><br>
-  <input id="birthCountry"><br><br>
+    <label>4️⃣ 出生国家</label>
+    <input id="birthCountry" placeholder="例如：China">
 
-  <label>5️⃣ 国籍/公民身份:</label><br>
-  <input id="citizenship"><br><br>
+    <label>5️⃣ 国籍/公民身份</label>
+    <input id="citizenship" placeholder="例如：China">
 
-  <label>6️⃣ 居住地址:</label><br>
-  街道: <input id="street"><br>
-  城市: <input id="city"><br>
-  州: <input id="state"><br>
-  邮编: <input id="zip"><br>
-  国家: <input id="country"><br><br>
+    <label>6️⃣ 居住地址</label>
+    <input id="street" placeholder="例如：123 Main St">
+    <input id="city" placeholder="例如：San Jose">
+    <input id="state" placeholder="例如：CA">
+    <input id="zip" placeholder="例如：95112">
+    <input id="country" placeholder="例如：USA">
 
-  <label>7️⃣ 电话号码（仅输入数字）:</label><br>
-  <input id="phone"><br><br>
+    <label>7️⃣ 电话号码（仅数字）</label>
+    <input id="phone" placeholder="例如：4085551234">
 
-  <label>8️⃣ 邮箱地址:</label><br>
-  <input id="email"><br><br>
+    <label>8️⃣ 邮箱地址</label>
+    <input id="email" placeholder="例如：zhangwei@email.com">
 
-  <button id="fillBtn">生成填写后的 PDF</button>
-  <p id="status"></p>
+    <button id="fillBtn">生成填写后的 PDF</button>
+    <p id="status"></p>
+  </div>
 
   <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
   <script src="script.js"></script>
